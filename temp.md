@@ -26,35 +26,8 @@ This design merges sequence recall with a gentle morning routine (making tea/cof
 * **Ergonomics:** All interactive targets (orbs, kitchen items) are positioned directly in front of the user at chest-to-eye level to prevent neck strain or excessive reaching.
 * **Multisensory Cues:** Every visual flash is paired with a distinct audio tone, aiding users with mild visual or auditory impairments.
 
-How would you like to refine the sequence or theme for your specific user test?
-
 ---
 
-## Step 1: Scenario Context
-
-*Essential course and topic details.*
-
-| Field | Type | Value |
-| --- | --- | --- |
-| **Course Name** | text | *(blank)* |
-| **Scenario Title** | text | *(blank)* |
-| **Subject Area / Domain** | select | *(unselected)* |
-| **Scenario Difficulty** | select | *(unselected)* |
-| **Estimated Duration** | text / number | *(blank)* |
-
-**Subject Area / Domain options**
-
-- Physics
-- Chemistry
-- Biology
-- Computer Science
-- Mathematics
-- Engineering
-- General
-
-**Actions:** `Cancel`
-
----
 
 ### Example: filled for the VR memory-sequencing scenario
 
