@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GP1: Memory Games in VR | Pelmanists</title>
+  <meta name="description" content="GP1: co-designing a 9-screen VR memory activity for older adults, from needfinding to Meta Quest 3 playback.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="team-mark" href="index.html">Pelmanists</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="charter.html">Team Charter</a></li>
+          <li><a href="journal.html">Process / Journal</a></li>
+          <li><a href="deliverables.html" aria-current="page">Deliverables</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="page-intro">
+      <h1>GP1: Memory Games in VR</h1>
+      <p>A 9-screen VR memory activity for adults 70 and older, built in ForgeXR and played on the Meta Quest 3. Players watch a pattern of glowing colored orbs and repeat it, learn which number goes with each colored shape and match them, then watch the steps of making tea and put them back in order.</p>
+      <p><a href="deliverables.html">Back to all deliverables</a></p>
+    </div>
+
+    <section aria-labelledby="links-heading">
+      <h2 id="links-heading">Submission links</h2>
+      <ul class="links-list">
+        <li>VR demonstration video (all 9 screens, narrated): <a href="https://drive.google.com/file/d/1kj0Jie3JQ0DGR4LdZuPJzGo-4JkDCKpQ/view">watch on Google Drive</a></li>
+        <li>ForgeXR export of the version shown in the video: <a href="docs/gp1-forgexr-recorded.json">gp1-forgexr-recorded.json</a></li>
+        <li>Revised ForgeXR export after testing (see <a href="#validation-heading">Phase 3</a>): <a href="docs/gp1-forgexr-revised.json">gp1-forgexr-revised.json</a></li>
+        <li>Paper prototype photos and state map: <a href="#unplugged-heading">below on this page</a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="needfinding-heading">
+      <h2 id="needfinding-heading">Phase 1: Needfinding</h2>
+      <p>We wanted to know where memory actually gets in the way of an ordinary day for an older adult, and what kind of help they would want.</p>
+
+      <dl class="facts">
+        <div><dt>Participant</dt><dd>P1, an older adult in their 70s</dd></div>
+        <div><dt>Date and setting</dt><dd>Thursday, October 1, 2026; in person</dd></div>
+        <div><dt>Method</dt><dd>Interview about daily routines and memory</dd></div>
+        <div><dt>Interviewer(s)</dt><dd>Salvador Lomeli Rodriguez</dd></div>
+        <div><dt>Consent</dt><dd>Verbal permission to take notes</dd></div>
+      </dl>
+
+      <h3>What we talked about</h3>
+      <ul class="links-list">
+        <li>How memory affects their day to day</li>
+        <li>Their daily routines and where those get harder</li>
+        <li>What kinds of things are hardest to remember</li>
+        <li>What kind of help they wish they had</li>
+      </ul>
+
+      <h3>What we heard</h3>
+      <ul class="links-list">
+        <li><strong>Memory is a day-to-day difficulty.</strong> P1 described having a harder time with memory in general. A practice tool should be short and repeatable rather than a one-time test.</li>
+        <li><strong>Daily routines are affected.</strong> Memory problems showed up in everyday routines, not just in recalling facts. Practice should use familiar tasks people actually do.</li>
+        <li><strong>Certain things are hard to remember.</strong> P1 had difficulty remembering specific things. Linking a new detail to something else (a color to a shape or number) gives the memory more to hold onto.</li>
+        <li><strong>They wished assistance existed.</strong> P1 wanted some kind of help with this. The tool should feel like support, with no timers, no penalties, and clear instructions.</li>
+      </ul>
+
+      <h3>How it changed the design</h3>
+      <ul class="links-list">
+        <li><strong>Short watch-then-recall rounds:</strong> every activity follows a screen that shows what to remember, so each round is small and the player always knows what's being asked (screens 2–3, 5–6, 7–8).</li>
+        <li><strong>A real routine:</strong> because routines were where memory got in the way, screens 7 and 8 practice the steps of making tea instead of an abstract pattern.</li>
+        <li><strong>Linked details:</strong> screens 4 to 6 pair each color with a shape and a number, practicing remembering one thing by connecting it to another.</li>
+        <li><strong>Support, not a test:</strong> no timers, animations that loop, and Check Answer retries, so mistakes can be fixed without pressure.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="unplugged-heading">
+      <h2 id="unplugged-heading">Phase 1: Unplugged prototype</h2>
+      <p>Before opening ForgeXR, we sketched all nine screens on paper. Our first design was a Simon-style game merged with a morning routine: three glowing orbs (red, blue, yellow) light up in a pattern with soft chimes and the player taps them back, then the same idea moves to a kitchen counter, where the kettle, tea bag, and mug light up in order and the player repeats the steps. The sketches mapped each screen's layout, what the player does, and where a success or a mistake leads.</p>
+
+      <figure>
+        <img src="images/gp1-paper-sketch-1.jpg" alt="Hand-drawn paper sketches of the first planned screens: the welcome screen and the glowing color orbs.">
+        <figcaption>Paper sketches of our first design, part 1.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/gp1-paper-sketch-2.jpg" alt="Hand-drawn paper sketches of the remaining planned screens: the kitchen counter, the tea steps, and the ending screens.">
+        <figcaption>Paper sketches of our first design, part 2.</figcaption>
+      </figure>
+
+      <h3>From paper to ForgeXR</h3>
+      <p>ForgeXR builds lessons from a fixed set of activity types, so parts of the paper design could not be built as drawn. It cannot light up objects on a timer, play chimes, or let the player tap orbs in sequence. We kept the core idea, watch something and then recall it, and adapted it:</p>
+      <ul class="links-list">
+        <li><strong>Watching a pattern:</strong> the timed orb flashes became a looping animation on an Explanation screen, so players can watch as many times as they need.</li>
+        <li><strong>Repeating a pattern:</strong> tapping orbs became an Ordering screen where the player arranges the colors.</li>
+        <li><strong>A new memory activity:</strong> we added a color, shape, and number pairing with a Matching screen, which also gives color-blind players shapes to rely on.</li>
+        <li><strong>The tea routine:</strong> tapping kitchen items became dragging the steps of making tea into order.</li>
+        <li><strong>The ending:</strong> the separate celebration and goodbye screens became a single goodbye screen to make room for the new activity.</li>
+      </ul>
+
+      <h3>State map</h3>
+      <p>The session alternates between "watch" screens, where the player takes in something to remember, and "do" screens, where they recall it. Activity screens use ForgeXR's Check Answer, so a player who gets something wrong can rearrange and check again instead of being locked out.</p>
+      <ol class="flow" aria-label="Screen-to-screen flow">
+        <li><span class="kind">Explanation</span><span class="name">Welcome</span><span class="loop">Next Screen goes to screen 2</span></li>
+        <li><span class="kind">Explanation (watch)</span><span class="name">Watch &amp; Learn: glowing orbs</span><span class="loop">Looping animation; the player moves on when ready</span></li>
+        <li><span class="kind">Organization: ordering</span><span class="name">Color Ordering</span><span class="loop">Check Answer; rearrange and retry on a mistake</span></li>
+        <li><span class="kind">Explanation</span><span class="name">Number and color memory explained</span><span class="loop">Sets up the next two screens</span></li>
+        <li><span class="kind">Exploration (watch)</span><span class="name">3D Blocks</span><span class="loop">Look at each colored shape and its number</span></li>
+        <li><span class="kind">Matching</span><span class="name">Number and color matching</span><span class="loop">Check Answer; wrong pairs can be redone</span></li>
+        <li><span class="kind">Explanation (watch)</span><span class="name">Recipe sequence for tea</span><span class="loop">Looping animation of the tea steps</span></li>
+        <li><span class="kind">Vertical block dragging</span><span class="name">Recipe sequence: your turn</span><span class="loop">Check Answer; reorder and retry on a mistake</span></li>
+        <li><span class="kind">Explanation</span><span class="name">Goodbye &amp; exit</span><span class="loop">Session ends</span></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="mapping-heading">
+      <h2 id="mapping-heading">Phase 2: 9-screen system mapping</h2>
+      <p>This table describes the version shown in our demonstration video. Changes we made after testing are listed in Phase 3.</p>
+
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Screen mapping table, scrolls horizontally">
+        <table class="screen-table">
+          <caption>Activity flow, inputs, outputs, and design choices for each screen</caption>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Type</th>
+              <th scope="col">Activity</th>
+              <th scope="col">Player input</th>
+              <th scope="col">System output and next state</th>
+              <th scope="col">UX for ages 70+</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">1</th><td>Explanation</td>
+              <td><strong>Welcome.</strong> A short greeting: today we'll warm up your memory with a few games.</td>
+              <td>Read, then Next Screen.</td>
+              <td>Goes to screen 2.</td>
+              <td>One short message so the player isn't overloaded before starting.</td></tr>
+            <tr><th scope="row">2</th><td>Explanation (watch)</td>
+              <td><strong>Watch &amp; Learn.</strong> An animation of glowing colored orbs lighting up in sequence.</td>
+              <td>Watch the pattern.</td>
+              <td>The animation loops; the player moves on when ready.</td>
+              <td>Looping means no "you missed it" moment; the player can watch as many times as they need.</td></tr>
+            <tr><th scope="row">3</th><td>Organization: ordering</td>
+              <td><strong>Color Ordering.</strong> Five colors: red, yellow, green, purple, blue.</td>
+              <td>Arrange the colors in the order they lit up, then Check Answer.</td>
+              <td>Correct: move on. Mistake: rearrange and check again.</td>
+              <td>Large, labeled blocks; numbers were added to help color-blind players (see Phase 3).</td></tr>
+            <tr><th scope="row">4</th><td>Explanation</td>
+              <td><strong>Number and color memory explained.</strong> Next you'll see blocks with colors, shapes, and numbers; remember them.</td>
+              <td>Read, then Next Screen.</td>
+              <td>Goes to screen 5.</td>
+              <td>Tells the player what to pay attention to before they see it.</td></tr>
+            <tr><th scope="row">5</th><td>Exploration</td>
+              <td><strong>3D Blocks.</strong> Five blocks, each a color, a shape, and a number.</td>
+              <td>Look around and inspect the blocks.</td>
+              <td>Next Screen goes to matching.</td>
+              <td>Each color also has its own shape, so color vision is not required.</td></tr>
+            <tr><th scope="row">6</th><td>Matching</td>
+              <td><strong>Number and color matching.</strong> Blue circle, green square, red triangle, yellow star, orange octagon to numbers 1 to 5.</td>
+              <td>Match each block to its number, then Check Answer.</td>
+              <td>Correct: move on. Mistake: redo the pairs.</td>
+              <td>Shape names next to colors; five pairs keeps the load manageable.</td></tr>
+            <tr><th scope="row">7</th><td>Explanation (watch)</td>
+              <td><strong>Recipe sequence for tea.</strong> An animation showing the steps of making tea.</td>
+              <td>Watch the steps.</td>
+              <td>Loops; the player moves on when ready.</td>
+              <td>A familiar daily routine, so the memory practice connects to real life.</td></tr>
+            <tr><th scope="row">8</th><td>Vertical block dragging</td>
+              <td><strong>Recipe sequence: your turn.</strong> Four steps: add water to kettle, boil the kettle, pour into mug, pick up mug.</td>
+              <td>Drag the steps into order, then Check Answer.</td>
+              <td>Correct: move on. Mistake: reorder and check again.</td>
+              <td>Short, plain step labels; only four blocks.</td></tr>
+            <tr><th scope="row">9</th><td>Explanation</td>
+              <td><strong>Goodbye &amp; exit.</strong> "You've completed today's session."</td>
+              <td>Read; session ends.</td>
+              <td>End of lesson.</td>
+              <td>A clear, positive ending so the player knows they are done.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Design rules we applied</h3>
+      <ul class="links-list">
+        <li><strong>Watch, then do:</strong> every recall activity follows a screen that shows what to remember.</li>
+        <li><strong>Not color alone:</strong> colors are paired with shapes or numbers for players with weak color vision.</li>
+        <li><strong>Gentle pacing:</strong> no timers; animations loop so nothing can be missed.</li>
+        <li><strong>Low-stress errors:</strong> Check Answer lets players fix mistakes and try again.</li>
+        <li><strong>Familiar content:</strong> making tea is an everyday routine, not an abstract puzzle.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="validation-heading">
+      <h2 id="validation-heading">Phase 3: Testing and what we changed</h2>
+      <p>We played all nine screens in the Meta Quest 3 and recorded a narrated run with the headset's built-in recorder. Testing in the headset showed several areas that needed troubleshooting and improvement. We fixed them in a revised version of the lesson, listed below.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Testing findings table, scrolls horizontally">
+        <table>
+          <caption>Problems found after recording, and the fix in the revised version</caption>
+          <thead><tr><th scope="col">Screen</th><th scope="col">Problem</th><th scope="col">Fix</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">3</th><td>The answer labels included position numbers (for example "Red(1)"), which gave the answer away, and the stored answer key did not match those numbers.</td><td>Removed the numbers from the labels and corrected the answer key.</td></tr>
+            <tr><th scope="row">5</th><td>The 3D Blocks screen had no model or hotspots, so the number pairings tested on screen 6 were never actually shown.</td><td>Added a description and five hotspots ("Blue circle is number 1," and so on); a 3D model still needs to be added.</td></tr>
+            <tr><th scope="row">All</th><td>Typos and notes meant for us were visible to players, such as the color-blind note on screen 2.</td><td>Rewrote every instruction in short, plain language.</td></tr>
+            <tr><th scope="row">9</th><td>Five of nine screens were reading or watching only.</td><td>Turned the goodbye screen into a final recall question: "What number was the red triangle?"</td></tr>
+            <tr><th scope="row">9</th><td>With two questions on one Multiple Choice screen, choosing an answer in one question also selected the same position in the other (a ForgeXR behavior).</td><td>Kept one question per Multiple Choice screen.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="contrib-heading">
+      <h2 id="contrib-heading">Team contribution breakdown</h2>
+      <p>Individual contribution statements are submitted privately on Canvas.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Contribution table, scrolls horizontally">
+        <table>
+          <caption>Who did what for GP1</caption>
+          <thead>
+            <tr><th scope="col">Member</th><th scope="col">Main contributions</th><th scope="col">Share</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Caden Dirnberger</th><td>Built the lesson in ForgeXR: all nine screens, the animations, and the activities</td><td>About 1/3</td></tr>
+            <tr><th scope="row">Salvador Lomeli Rodriguez</th><td>Conducted the older adult interview; documented the findings and the changes after testing on this site</td><td>About 1/3</td></tr>
+            <tr><th scope="row">Ethan Bucy</th><td>Led headset testing on the Meta Quest 3 and recorded the narrated playthrough</td><td>About 1/3</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>The Pelmanists, AI 380: Human-AI Interaction, Fall 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>

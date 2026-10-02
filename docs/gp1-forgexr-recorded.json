@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "1.4",
+  "lessons": {
+    "id": "721d1d16ddc4e7e875f2426f",
+    "courseName": "",
+    "title": "Memory games and VR interventions for older adults.",
+    "description": "A blank scenario ready for editing.",
+    "domain": "General",
+    "learningObjectives": [],
+    "durationMinutes": 30,
+    "ctPractices": [],
+    "difficulty": "",
+    "aiConfig": {
+      "enabled": true,
+      "assistantName": "",
+      "persona": "",
+      "difficulty": "",
+      "responseStyle": "",
+      "maxResponseLength": 150,
+      "language": "en",
+      "knowledgeScope": "lesson",
+      "systemPrompt": ""
+    },
+    "screens": [
+      {
+        "type": "Explanation",
+        "lessonTitle": "",
+        "subtitle": "",
+        "slides": [
+          {
+            "text": "Welcome! Let's warm up your memory today. We will do some diffent memory tests and game to help your memory "
+          }
+        ],
+        "sceneTitle": "Welcome Screen"
+      },
+      {
+        "type": "Explanation",
+        "lessonTitle": "",
+        "subtitle": "",
+        "slides": [
+          {
+            "text": "Watch the pattern carefully. Pay attention to the glowing orbse.(if color blind then numbered postion in the Sequence)",
+            "img_source_provider": "uploaded",
+            "img_description": "Colors Lights GIF by Omer Studios.gif",
+            "img_url": "/static/uploads/721d1d16ddc4e7e875f2426f/71a8a5551d2a47eca036f21814ff6097.gif"
+          }
+        ],
+        "sceneTitle": "Watch & Learn"
+      },
+      {
+        "type": "Organization",
+        "sceneTitle": "Color Ordering",
+        "subtype": "ordering",
+        "instructions": "Arrange the color based on the last slide ",
+        "objects": [
+          {
+            "label": "Green(3)",
+            "correctPosition": 0
+          },
+          {
+            "label": "Red(1)",
+            "correctPosition": 1
+          },
+          {
+            "label": "Blue(5)",
+            "correctPosition": 2
+          },
+          {
+            "label": "Yellow(2)",
+            "correctPosition": 3
+          },
+          {
+            "label": "Purple(4)",
+            "correctPosition": 4
+          }
+        ]
+      },
+      {
+        "type": "Explanation",
+        "lessonTitle": "Number and Color Memory Explained",
+        "subtitle": "",
+        "slides": [
+          {
+            "text": "Great job! now there is going to be 3d blocks on the next page that has differnt number with colors (also shapes if color blind) memorise them and you will macth the color with the number."
+          }
+        ]
+      },
+      {
+        "type": "Exploration",
+        "title": "",
+        "objects": [
+          {
+            "name": "New Object",
+            "glbUrl": "",
+            "description": "",
+            "hotspots": []
+          }
+        ],
+        "sceneTitle": "3D Blocks"
+      },
+      {
+        "type": "Matching",
+        "lessonTitle": "",
+        "instructions": "Match each term with its definition.",
+        "terms": [
+          {
+            "id": "1",
+            "text": "Blue(Circle)"
+          },
+          {
+            "id": "2",
+            "text": "Green(Sqaure)"
+          },
+          {
+            "id": "3",
+            "text": "Red(Triangle)"
+          },
+          {
+            "id": "4",
+            "text": "Yellow(Star)"
+          },
+          {
+            "id": "5",
+            "text": "Orange(Octagon)"
+          }
+        ],
+        "definitions": [
+          {
+            "id": "1",
+            "text": "1"
+          },
+          {
+            "id": "2",
+            "text": "2"
+          },
+          {
+            "id": "3",
+            "text": "3"
+          },
+          {
+            "id": "4",
+            "text": "4"
+          },
+          {
+            "id": "5",
+            "text": "5"
+          }
+        ],
+        "objects": {
+          "0": {
+            "name": "New Object",
+            "glbUrl": "/static/models/Educational_3D_model_for__New_Object_Lesson_domain.glb",
+            "description": "",
+            "hotspots": []
+          }
+        },
+        "sceneTitle": "Number and Color matching"
+      },
+      {
+        "type": "Explanation",
+        "lessonTitle": "Recipe Sequence for Tea",
+        "subtitle": "",
+        "slides": [
+          {
+            "text": "Watch the item sequence carefully, you will be tested on what the sequence was.",
+            "img_source_provider": "uploaded",
+            "img_description": "56fa9b6b0733900c (1).gif",
+            "img_url": "/static/uploads/721d1d16ddc4e7e875f2426f/1b221d42691a4d8a9f55d48675a243be.gif",
+            "img_side": "right"
+          }
+        ]
+      },
+      {
+        "type": "VerticalBlockDragging",
+        "sceneTitle": "Recipe Sequence: Your Turn",
+        "instructions": "Arrange it to the recipe",
+        "blocks": [
+          {
+            "variable": "a",
+            "expression": "1",
+            "label": "Add water to kettle ",
+            "imgurl": ""
+          },
+          {
+            "variable": "b",
+            "expression": "a",
+            "label": "Boil the kettle",
+            "imgurl": ""
+          },
+          {
+            "variable": "c",
+            "expression": "a+b",
+            "label": "Pour in to mug",
+            "imgurl": ""
+          },
+          {
+            "variable": "d",
+            "expression": "a+b+c",
+            "label": "Pick up mug",
+            "imgurl": ""
+          }
+        ],
+        "objects": {
+          "0": {
+            "name": "New Object",
+            "glbUrl": "/static/models/Educational_3D_model_for__New_Object_Lesson_domain.glb",
+            "description": "",
+            "hotspots": []
+          }
+        }
+      },
+      {
+        "type": "Explanation",
+        "lessonTitle": "Goodbye & Exit",
+        "subtitle": "",
+        "slides": [
+          {
+            "text": "You've completed today's session. Have a wonderful day!ontent here."
+          }
+        ]
+      }
+    ],
+    "contextMaterials": [],
+    "status": "Private"
+  }
+}

@@ -161,3 +161,40 @@ main section h3 { margin-top: 1.5rem; }
 .signatures li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--ink); }
 .sig-name { font-family: var(--font-display); font-weight: 700; color: var(--ink); font-size: 1.15rem; }
 .signatures time { color: var(--muted); }
+
+/* ---------- GP1 page ---------- */
+.todo {
+  background: var(--highlight); color: #1d2a4d;
+  padding: 0.05em 0.35em; border-radius: var(--radius-sm); font-weight: 700;
+}
+.todo-block {
+  border: 2px dashed var(--ink); border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem; margin: 1rem 0; max-width: var(--measure);
+}
+.todo-block p:last-child, .todo-block ul:last-child { margin-bottom: 0; }
+.facts { margin: 1rem 0; padding: 0; max-width: var(--measure); }
+.facts > div { display: grid; grid-template-columns: 11rem 1fr; gap: 0.25rem 1rem; padding: 0.55rem 0; border-bottom: 1px solid var(--rule); }
+.facts dt { font-weight: 700; color: var(--ink); }
+.facts dd { margin: 0; }
+@media (max-width: 560px) { .facts > div { grid-template-columns: 1fr; } }
+
+.flow { list-style: none; padding: 0; margin: 1.25rem 0; display: grid; gap: 0.6rem; max-width: 760px; counter-reset: step; }
+.flow li {
+  counter-increment: step; display: grid; grid-template-columns: 2.6rem 1fr; gap: 0.2rem 0.9rem;
+  align-items: start; padding: 0.7rem 0.9rem; background: var(--surface);
+  border: 1px solid var(--rule); border-radius: var(--radius-sm);
+}
+.flow li::before {
+  content: counter(step); grid-row: span 2; display: grid; place-items: center;
+  width: 2.3rem; height: 2.3rem; border-radius: 50%;
+  background: var(--highlight); color: #1d2a4d; border: 3px solid var(--ink);
+  font-family: var(--font-display); font-weight: 800;
+}
+.flow .kind { color: var(--muted); font-size: 0.9rem; }
+.flow .name { font-weight: 700; color: var(--ink); }
+.flow .loop { grid-column: 2; font-size: 0.9rem; color: var(--muted); }
+
+.screen-table { min-width: 980px; font-size: 0.92rem; }
+.screen-table td:first-child, .screen-table th:first-child { white-space: nowrap; }
+.screen-table ul { margin: 0; padding-left: 1rem; }
+.links-list { max-width: var(--measure); padding-left: 1.2rem; }

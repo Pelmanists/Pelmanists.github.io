@@ -1,0 +1,262 @@
+{
+  "schemaVersion": "1.4",
+  "lessons": {
+    "id": "721d1d16ddc4e7e875f2426f",
+    "courseName": "Memorization Class for Older Adults",
+    "title": "Memory games and VR interventions for older adults.",
+    "description": "A gentle 9-screen memory session for adults 70+. Players watch and repeat a color pattern, match colors and shapes to numbers, and recall the steps of making tea.",
+    "domain": "General",
+    "learningObjectives": [
+      "Remember and repeat a short sequence of colors.",
+      "Remember which number goes with each color and shape.",
+      "Recall the steps of a familiar daily routine in order."
+    ],
+    "durationMinutes": 10,
+    "ctPractices": [],
+    "difficulty": "Beginner",
+    "aiConfig": {
+      "enabled": true,
+      "assistantName": "",
+      "persona": "",
+      "difficulty": "",
+      "responseStyle": "",
+      "maxResponseLength": 60,
+      "language": "en",
+      "knowledgeScope": "lesson",
+      "systemPrompt": "SYSTEM INSTRUCTIONS:\nYou are a patient, friendly helper for older adults (ages 70+) playing a short memory game in VR.\nUse short sentences and everyday words. Never use technical terms.\nIf the player makes a mistake, reassure them and give one small hint at a time. Never say they are wrong.\nKeep every answer under 30 words."
+    },
+    "screens": [
+      {
+        "type": "Explanation",
+        "lessonTitle": "",
+        "subtitle": "",
+        "slides": [
+          {
+            "text": "Welcome! Let's warm up your memory today. We'll play a few short memory games. Take your time. There is no rush."
+          }
+        ],
+        "sceneTitle": "Welcome Screen"
+      },
+      {
+        "type": "Explanation",
+        "lessonTitle": "",
+        "subtitle": "",
+        "slides": [
+          {
+            "text": "Watch the glowing orbs carefully. Remember the order of the colors. You'll put them in order on the next screen.",
+            "img_source_provider": "uploaded",
+            "img_description": "Colors Lights GIF by Omer Studios.gif",
+            "img_url": "/static/uploads/721d1d16ddc4e7e875f2426f/71a8a5551d2a47eca036f21814ff6097.gif"
+          }
+        ],
+        "sceneTitle": "Watch & Learn"
+      },
+      {
+        "type": "Organization",
+        "sceneTitle": "Color Ordering",
+        "subtype": "ordering",
+        "instructions": "Put the colors in the order you just saw.",
+        "objects": [
+          {
+            "label": "Green",
+            "correctPosition": 2
+          },
+          {
+            "label": "Red",
+            "correctPosition": 0
+          },
+          {
+            "label": "Blue",
+            "correctPosition": 4
+          },
+          {
+            "label": "Yellow",
+            "correctPosition": 1
+          },
+          {
+            "label": "Purple",
+            "correctPosition": 3
+          }
+        ]
+      },
+      {
+        "type": "Explanation",
+        "lessonTitle": "Colors, Shapes, and Numbers",
+        "subtitle": "",
+        "slides": [
+          {
+            "text": "Great job! Next you'll see five blocks. Each one has a color, a shape, and a number. Look at each block and remember its number."
+          }
+        ]
+      },
+      {
+        "type": "Exploration",
+        "title": "Look at the Blocks",
+        "objects": [
+          {
+            "name": "numberBlocks",
+            "glbUrl": "",
+            "description": "Five large blocks in a row: a blue circle labeled 1, a green square labeled 2, a red triangle labeled 3, a yellow star labeled 4, and an orange octagon labeled 5.",
+            "position": {
+              "x": 0,
+              "y": 0.1,
+              "z": 0
+            },
+            "scale": 1,
+            "disableTranslation": false,
+            "disableRotation": false,
+            "disableScale": false,
+            "visible": true,
+            "showHotspots": true,
+            "hotspots": [
+              {
+                "label": "Blue circle is number 1.",
+                "px": 0.1,
+                "py": 0.5,
+                "pz": 0.5
+              },
+              {
+                "label": "Green square is number 2.",
+                "px": 0.3,
+                "py": 0.5,
+                "pz": 0.5
+              },
+              {
+                "label": "Red triangle is number 3.",
+                "px": 0.5,
+                "py": 0.5,
+                "pz": 0.5
+              },
+              {
+                "label": "Yellow star is number 4.",
+                "px": 0.7,
+                "py": 0.5,
+                "pz": 0.5
+              },
+              {
+                "label": "Orange octagon is number 5.",
+                "px": 0.9,
+                "py": 0.5,
+                "pz": 0.5
+              }
+            ]
+          }
+        ],
+        "sceneTitle": "3D Blocks"
+      },
+      {
+        "type": "Matching",
+        "lessonTitle": "Match the Numbers",
+        "instructions": "Match each block to the number it had.",
+        "terms": [
+          {
+            "id": "1",
+            "text": "Blue (circle)"
+          },
+          {
+            "id": "2",
+            "text": "Green (square)"
+          },
+          {
+            "id": "3",
+            "text": "Red (triangle)"
+          },
+          {
+            "id": "4",
+            "text": "Yellow (star)"
+          },
+          {
+            "id": "5",
+            "text": "Orange (octagon)"
+          }
+        ],
+        "definitions": [
+          {
+            "id": "1",
+            "text": "1"
+          },
+          {
+            "id": "2",
+            "text": "2"
+          },
+          {
+            "id": "3",
+            "text": "3"
+          },
+          {
+            "id": "4",
+            "text": "4"
+          },
+          {
+            "id": "5",
+            "text": "5"
+          }
+        ],
+        "sceneTitle": "Number and Color matching"
+      },
+      {
+        "type": "Explanation",
+        "lessonTitle": "Recipe Sequence for Tea",
+        "subtitle": "",
+        "slides": [
+          {
+            "text": "Now let's make tea. Watch each step carefully. You'll put the steps in order on the next screen.",
+            "img_source_provider": "uploaded",
+            "img_description": "56fa9b6b0733900c (1).gif",
+            "img_url": "/static/uploads/721d1d16ddc4e7e875f2426f/1b221d42691a4d8a9f55d48675a243be.gif",
+            "img_side": "right"
+          }
+        ]
+      },
+      {
+        "type": "VerticalBlockDragging",
+        "sceneTitle": "Recipe Sequence: Your Turn",
+        "instructions": "Put the tea steps in the order you just saw.",
+        "blocks": [
+          {
+            "variable": "a",
+            "expression": "1",
+            "label": "Fill the kettle with water",
+            "imgurl": ""
+          },
+          {
+            "variable": "b",
+            "expression": "a",
+            "label": "Boil the water",
+            "imgurl": ""
+          },
+          {
+            "variable": "c",
+            "expression": "b",
+            "label": "Pour the water into the mug",
+            "imgurl": ""
+          },
+          {
+            "variable": "d",
+            "expression": "c",
+            "label": "Pick up the mug",
+            "imgurl": ""
+          }
+        ]
+      },
+      {
+        "type": "MultipleChoice",
+        "lessonTitle": "Last Question",
+        "instructions": "One last question, then you're all done. Wonderful work today!",
+        "questions": [
+          {
+            "questionText": "What number was the red triangle?",
+            "options": [
+              "1",
+              "3",
+              "5"
+            ],
+            "correctIndex": 1
+          }
+        ]
+      }
+    ],
+    "contextMaterials": [],
+    "status": "Private"
+  }
+}
