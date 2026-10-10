@@ -46,13 +46,13 @@
 
     <section aria-labelledby="needfinding-heading">
       <h2 id="needfinding-heading">Phase 1: Needfinding</h2>
-      <p>We wanted to know where memory actually gets in the way of an ordinary day for an older adult, and what kind of help they would want.</p>
+      <p>We wanted to know where memory actually gets in the way of an ordinary day for an older adult, and what kind of help they would want. Each of us interviewed an older adult on our own, then we met up to compare notes and decide which direction to take the project.</p>
 
       <dl class="facts">
-        <div><dt>Participant</dt><dd>P1, an older adult in their 70s</dd></div>
-        <div><dt>Date and setting</dt><dd>Thursday, October 1, 2026; in person</dd></div>
-        <div><dt>Method</dt><dd>Interview about daily routines and memory</dd></div>
-        <div><dt>Interviewer(s)</dt><dd>Salvador Lomeli Rodriguez</dd></div>
+        <div><dt>Participants</dt><dd>Three older adults, one per team member</dd></div>
+        <div><dt>Setting</dt><dd>Separate in-person interviews, followed by a team debrief</dd></div>
+        <div><dt>Method</dt><dd>Interview about daily routines and memory; notes compared as a team</dd></div>
+        <div><dt>Interviewers</dt><dd>Caden Dirnberger, Salvador Lomeli Rodriguez, and Ethan Bucy</dd></div>
         <div><dt>Consent</dt><dd>Verbal permission to take notes</dd></div>
       </dl>
 
@@ -66,19 +66,14 @@
 
       <h3>What we heard</h3>
       <ul class="links-list">
-        <li><strong>Memory is a day-to-day difficulty.</strong> P1 described having a harder time with memory in general. A practice tool should be short and repeatable rather than a one-time test.</li>
-        <li><strong>Daily routines are affected.</strong> Memory problems showed up in everyday routines, not just in recalling facts. Practice should use familiar tasks people actually do.</li>
-        <li><strong>Certain things are hard to remember.</strong> P1 had difficulty remembering specific things. Linking a new detail to something else (a color to a shape or number) gives the memory more to hold onto.</li>
-        <li><strong>They wished assistance existed.</strong> P1 wanted some kind of help with this. The tool should feel like support, with no timers, no penalties, and clear instructions.</li>
+        <li>Memory was harder for them in general, not just now and then.</li>
+        <li>It got in the way of their daily routines, not only of remembering facts.</li>
+        <li>Passwords were hard to remember, and so was how to open certain apps once an update changed the layout.</li>
+        <li>They wished they had some kind of help with it.</li>
       </ul>
 
       <h3>How it changed the design</h3>
-      <ul class="links-list">
-        <li><strong>Short watch-then-recall rounds:</strong> every activity follows a screen that shows what to remember, so each round is small and the player always knows what's being asked (screens 2–3, 5–6, 7–8).</li>
-        <li><strong>A real routine:</strong> because routines were where memory got in the way, screens 7 and 8 practice the steps of making tea instead of an abstract pattern.</li>
-        <li><strong>Linked details:</strong> screens 4 to 6 pair each color with a shape and a number, practicing remembering one thing by connecting it to another.</li>
-        <li><strong>Support, not a test:</strong> no timers, animations that loop, and Check Answer retries, so mistakes can be fixed without pressure.</li>
-      </ul>
+      <p>Since memory trouble was an everyday thing, we kept each activity short and repeatable: a screen shows what to remember, and the next one asks for it back (screens 2–3, 5–6, 7–8). Because routines were where it hurt most, the last activity is making tea instead of another abstract pattern. On screens 4 to 6, each color comes with a shape and a number, so players practice remembering one thing by linking it to another. And since they wanted help rather than a test, there are no timers, the animations loop, and Check Answer lets players fix mistakes and try again.</p>
     </section>
 
     <section aria-labelledby="unplugged-heading">
@@ -93,11 +88,11 @@
       <h3>From paper to ForgeXR</h3>
       <p>ForgeXR builds lessons from a fixed set of activity types, so parts of the paper design could not be built as drawn. It cannot light up objects on a timer, play chimes, or let the player tap orbs in sequence. We kept the core idea, watch something and then recall it, and adapted it:</p>
       <ul class="links-list">
-        <li><strong>Watching a pattern:</strong> the timed orb flashes became a looping animation on an Explanation screen, so players can watch as many times as they need.</li>
-        <li><strong>Repeating a pattern:</strong> tapping orbs became an Ordering screen where the player arranges the colors.</li>
-        <li><strong>A new memory activity:</strong> we added a color, shape, and number pairing with a Matching screen, which also gives color-blind players shapes to rely on.</li>
-        <li><strong>The tea routine:</strong> tapping kitchen items became dragging the steps of making tea into order.</li>
-        <li><strong>The ending:</strong> the separate celebration and goodbye screens became a single goodbye screen to make room for the new activity.</li>
+        <li>The timed orb flashes became a looping animation on an Explanation screen, so players can watch as many times as they need.</li>
+        <li>Tapping the orbs back became an Ordering screen where the player arranges the colors.</li>
+        <li>We added a new activity, pairing colors with shapes and numbers on a Matching screen. The shapes also help color-blind players.</li>
+        <li>Tapping kitchen items became dragging the steps of making tea into order.</li>
+        <li>The separate celebration and goodbye screens became one goodbye screen to make room for the new activity.</li>
       </ul>
 
       <h3>State map</h3>
@@ -181,15 +176,6 @@
           </tbody>
         </table>
       </div>
-
-      <h3>Design rules we applied</h3>
-      <ul class="links-list">
-        <li><strong>Watch, then do:</strong> every recall activity follows a screen that shows what to remember.</li>
-        <li><strong>Not color alone:</strong> colors are paired with shapes or numbers for players with weak color vision.</li>
-        <li><strong>Gentle pacing:</strong> no timers; animations loop so nothing can be missed.</li>
-        <li><strong>Low-stress errors:</strong> Check Answer lets players fix mistakes and try again.</li>
-        <li><strong>Familiar content:</strong> making tea is an everyday routine, not an abstract puzzle.</li>
-      </ul>
     </section>
 
     <section aria-labelledby="validation-heading">
@@ -220,9 +206,9 @@
             <tr><th scope="col">Member</th><th scope="col">Main contributions</th><th scope="col">Share</th></tr>
           </thead>
           <tbody>
-            <tr><th scope="row">Caden Dirnberger</th><td>Built the lesson in ForgeXR: all nine screens, the animations, and the activities</td><td>About 1/3</td></tr>
-            <tr><th scope="row">Salvador Lomeli Rodriguez</th><td>Conducted the older adult interview; documented the findings and the changes after testing on this site</td><td>About 1/3</td></tr>
-            <tr><th scope="row">Ethan Bucy</th><td>Led headset testing on the Meta Quest 3 and recorded the playthrough</td><td>About 1/3</td></tr>
+            <tr><th scope="row">Caden Dirnberger</th><td>Interviewed an older adult; built the lesson in ForgeXR: all nine screens, the animations, and the activities</td><td>About 1/3</td></tr>
+            <tr><th scope="row">Salvador Lomeli Rodriguez</th><td>Interviewed an older adult; documented the findings and the changes after testing on this site</td><td>About 1/3</td></tr>
+            <tr><th scope="row">Ethan Bucy</th><td>Interviewed an older adult; led headset testing on the Meta Quest 3 and recorded the playthrough</td><td>About 1/3</td></tr>
           </tbody>
         </table>
       </div>
