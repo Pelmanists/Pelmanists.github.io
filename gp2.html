@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GP2: Conversational AI for Older Adults | Pelmanists</title>
+  <meta name="description" content="GP2: needfinding, problem statement, personas, and a paper conversational workflow for a voice assistant for older adults.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="team-mark" href="index.html">Pelmanists</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="charter.html">Team Charter</a></li>
+          <li><a href="journal.html">Process / Journal</a></li>
+          <li><a href="deliverables.html" aria-current="page">Deliverables</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="page-intro">
+      <h1>GP2: Conversational AI for Older Adults</h1>
+      <p>The start of Project 2: a conversational assistant for adults 70 and older. We talked with older adults about technology and memory, narrowed the problem to medication reminders, wrote two personas, and drew the assistant's conversation on paper, including what it does when it doesn't understand and when it hands off to a person.</p>
+      <p><a href="deliverables.html">Back to all deliverables</a></p>
+    </div>
+
+    <section aria-labelledby="links-heading">
+      <h2 id="links-heading">Submission links</h2>
+      <ul class="links-list">
+        <li>Paper-based conversational workflow: <a href="GP2paperpages.pdf">PDF</a>; walkthrough <a href="#workflow-heading">below on this page</a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="needfinding-heading">
+      <h2 id="needfinding-heading">Needfinding summary</h2>
+      <p>We wanted to learn how older adults feel about the technology they already use, where it lets them down, and whether they would trust an AI assistant to help them. Each of us interviewed an older adult on our own. The two interviews summarized below show two very different levels of comfort with technology.</p>
+
+      <dl class="facts">
+        <div><dt>Participants</dt><dd>Older adults over 70; two summarized here</dd></div>
+        <div><dt>Method</dt><dd>Interview about everyday technology use, frustrations, and attitudes toward AI</dd></div>
+        <div><dt>Summary</dt><dd>Ethan Bucy</dd></div>
+        <div><dt>Consent</dt><dd>Verbal permission to take notes</dd></div>
+      </dl>
+
+      <h3>Older Adult 1: little comfort with phones</h3>
+      <ul class="links-list">
+        <li>Wishes technology were more open about changes and updates.</li>
+        <li>Loves the home button.</li>
+        <li>Needs slow, step-by-step, in-person practice before feeling comfortable.</li>
+        <li>Doesn't like it when their information is obviously being sold (personalized ads).</li>
+        <li>Avoids doing anything difficult on the phone because of poor interfaces and compatibility support.</li>
+        <li>Doesn't like autocorrect making mistakes.</li>
+      </ul>
+
+      <h3>Older Adult 2: experienced with technology</h3>
+      <ul class="links-list">
+        <li>Uses WordPress to build and run several websites.</li>
+        <li>Reported no problems understanding current technology.</li>
+        <li>Even with a strong grasp of technology, he approves of what AI can do: it has become a respected tool that gives him insurance on his memory when he feels he can't keep track of everything.</li>
+        <li>Wants to understand AI better so it can help him in more parts of his daily life.</li>
+      </ul>
+
+      <h3>Key pain points and accessibility requirements</h3>
+      <ul class="links-list">
+        <li><strong>One step at a time.</strong> Help has to be slow and step-by-step, not a screen full of options.</li>
+        <li><strong>Predictable and familiar.</strong> Updates that move things around cause confusion; a simple, constant "home" to return to is valued.</li>
+        <li><strong>Don't guess for the user.</strong> Autocorrect-style mistakes are frustrating, so the assistant should confirm what it heard instead of assuming.</li>
+        <li><strong>Privacy.</strong> Personal information should not feel like it is being sold.</li>
+        <li><strong>Memory backup.</strong> Even a tech-savvy older adult values AI as a backup for his memory.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="problem-heading">
+      <h2 id="problem-heading">Problem statement and scoping</h2>
+      <p><strong>Problem statement.</strong> Older adults over 70 can struggle to remember which medication to take, when to take it, and whether they already took it. Phone apps don't solve this for many of them: interfaces change with updates, small steps get confusing, and they want slow, step-by-step help. Our conversational assistant addresses this cognitive challenge with a voice-first medication reminder. It asks which pill and what time, repeats the reminder back to confirm it, checks in at pill time ("Did you take it?"), and alerts a caregiver if a dose is missed.</p>
+
+      <h3>Why medication reminders</h3>
+      <p>Our workflow sketch has three branches: reminders, a memory game, and phone help. We chose to focus on reminders first because it is the most concrete task, a missed dose has real consequences, and it has a clear point where a person should step in. It also directly answers what our persona Outdated Dan wants: to remember which meds to take and in what order.</p>
+
+      <h3>In scope</h3>
+      <ul class="links-list">
+        <li>Setting a medication reminder by talking: which pill and what time</li>
+        <li>Repeating the reminder back so the user can confirm or correct it</li>
+        <li>A check-in at pill time, and a caregiver alert if the dose isn't taken</li>
+        <li>Fallbacks when the assistant doesn't understand, and calling family after two failed tries</li>
+      </ul>
+
+      <h3>Out of scope for now</h3>
+      <ul class="links-list">
+        <li>The family-photo memory game and step-by-step phone help. Both stay on our workflow sketch, and we will add them later if feasible.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="personas-heading">
+      <h2 id="personas-heading">User personas</h2>
+      <p>Two fictional personas, one at each end of the comfort range we heard about in our interviews.</p>
+
+      <h3>Techbite Bill</h3>
+      <p>Bill has lots of experience with technology. He makes his own websites, has AI help him with daily tasks, and FaceTimes his family all the time. Bill has trouble remembering the prompts he puts into AI, and he forgets many of his family members' names. He has tried many AI tools, but he hasn't found the right one for him.</p>
+      <dl class="facts">
+        <div><dt>Technical familiarity</dt><dd>High: builds websites, uses AI daily, video calls family</dd></div>
+        <div><dt>Cognitive considerations</dt><dd>Forgets the prompts he has used and the names of family members</dd></div>
+        <div><dt>What he needs from the assistant</dt><dd>An assistant that remembers for him, so he doesn't have to remember what to ask</dd></div>
+      </dl>
+
+      <h3>Outdated Dan</h3>
+      <p>Dan doesn't like technology and has no experience with it. He spends most of his time confused when his phone updates or when his children try to FaceTime him. He wants to remember which meds he needs to take and in what order, and he wants help remembering what each of his apps does. He thinks an AI could help, but he doesn't know which one to use.</p>
+      <dl class="facts">
+        <div><dt>Technical familiarity</dt><dd>None: confused by phone updates and incoming FaceTime calls</dd></div>
+        <div><dt>Cognitive considerations</dt><dd>Has trouble remembering which meds to take and in what order, and what each app does</dd></div>
+        <div><dt>What he needs from the assistant</dt><dd>Simple, spoken help with his medications that doesn't require learning a new app</dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="workflow-heading">
+      <h2 id="workflow-heading">Paper-based conversational workflow</h2>
+      <p>We drew the whole conversation on paper before building anything. The legend uses five shapes: start/end, what the assistant says, a decision, a fallback (dashed), and a point where a human steps in (marked with a star).</p>
+
+      <p><a href="GP2paperpages.pdf">View the paper workflow (PDF)</a></p>
+      <div class="table-scroll" role="region" aria-label="Paper workflow PDF preview">
+        <iframe src="GP2paperpages.pdf" title="Hand-drawn conversational workflow flowchart" style="width:100%;min-width:320px;height:720px;border:1px solid var(--rule);border-radius:var(--radius-sm);"></iframe>
+      </div>
+
+      <h3>Opening and understanding the request</h3>
+      <ol class="flow" aria-label="Opening flow">
+        <li><span class="kind">Start</span><span class="name">"Hey Helper"</span><span class="loop">The user wakes the assistant by voice</span></li>
+        <li><span class="kind">Assistant says</span><span class="name">"Hi! What can I help with?"</span><span class="loop">Offers three choices: Reminders, Memory Game, Phone Help</span></li>
+        <li><span class="kind">Decision</span><span class="name">Understood?</span><span class="loop">Yes: go to the chosen branch. No: fallback</span></li>
+        <li><span class="kind">Fallback</span><span class="name">Offer the choices again, repeat slower</span><span class="loop">Retries the opening question</span></li>
+        <li><span class="kind">Human steps in</span><span class="name">After 2 failed tries: call family</span><span class="loop">A family member takes over</span></li>
+      </ol>
+
+      <h3>Branch 1: Reminders (our focus)</h3>
+      <ol class="flow" aria-label="Reminders flow">
+        <li><span class="kind">Assistant says</span><span class="name">"Which pill, and what time?"</span><span class="loop">The user answers by voice</span></li>
+        <li><span class="kind">Decision</span><span class="name">Repeat back: correct?</span><span class="loop">No: ask again. Yes: the reminder is set</span></li>
+        <li><span class="kind">Assistant says</span><span class="name">At pill time: "Did you take it?"</span><span class="loop">Check-in at the scheduled time</span></li>
+        <li><span class="kind">Decision</span><span class="name">Taken?</span><span class="loop">Yes: end. No: human steps in</span></li>
+        <li><span class="kind">Human steps in</span><span class="name">Alert caregiver</span><span class="loop">A caregiver is told the dose was missed</span></li>
+      </ol>
+
+      <h3>Branch 2: Memory Game (later, if feasible)</h3>
+      <ol class="flow" aria-label="Memory game flow">
+        <li><span class="kind">Assistant says</span><span class="name">Shows a family photo: "Who is this?"</span><span class="loop">The user names the person</span></li>
+        <li><span class="kind">Decision</span><span class="name">Correct?</span><span class="loop">No: fallback, give a hint and ask again</span></li>
+        <li><span class="kind">Assistant says</span><span class="name">"Great job!"</span><span class="loop">Positive feedback</span></li>
+        <li><span class="kind">Decision</span><span class="name">Play again?</span><span class="loop">Yes: new photo. No: end</span></li>
+      </ol>
+
+      <h3>Branch 3: Phone Help (later, if feasible)</h3>
+      <ol class="flow" aria-label="Phone help flow">
+        <li><span class="kind">Assistant says</span><span class="name">Shows ONE step plus a picture</span><span class="loop">Only one step at a time</span></li>
+        <li><span class="kind">Decision</span><span class="name">Got it?</span><span class="loop">No: fallback, reword it simpler and show the step again</span></li>
+        <li><span class="kind">Assistant says</span><span class="name">Next step</span><span class="loop">Moves on once the user is ready</span></li>
+        <li><span class="kind">Decision</span><span class="name">More steps?</span><span class="loop">Yes: show the next step. No: end</span></li>
+      </ol>
+
+      <h3>Ending</h3>
+      <ol class="flow" aria-label="Ending">
+        <li><span class="kind">End</span><span class="name">"Anything else?"</span><span class="loop">Every branch finishes here</span></li>
+      </ol>
+
+      <h3>Intents, fallbacks, and human-in-the-loop points</h3>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Workflow summary table, scrolls horizontally">
+        <table>
+          <caption>What the assistant does for each intent when things go right and when they don't</caption>
+          <thead>
+            <tr><th scope="col">Intent</th><th scope="col">Multi-turn path</th><th scope="col">Fallback</th><th scope="col">Human steps in</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Opening</th><td>Greet, offer three choices</td><td>Offer the choices again, repeat slower</td><td>After 2 failed tries, call family</td></tr>
+            <tr><th scope="row">Reminders</th><td>Ask pill and time, repeat back, check in at pill time</td><td>Ask again if the repeat-back is wrong</td><td>Alert caregiver if the pill isn't taken</td></tr>
+            <tr><th scope="row">Memory Game</th><td>Family photo, "Who is this?", praise, play again</td><td>Give a hint</td><td>None</td></tr>
+            <tr><th scope="row">Phone Help</th><td>One step plus a picture, next step until done</td><td>Reword it simpler</td><td>None</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How the interviews shaped the workflow</h3>
+      <ul class="links-list">
+        <li>Older Adult 1 needs slow, step-by-step help, so Phone Help shows only one step at a time, and the fallback repeats more slowly instead of giving up.</li>
+        <li>Autocorrect mistakes frustrate older adults, so the reminder branch repeats back what it heard before saving anything.</li>
+        <li>"Anything else?" always returns the user to the same familiar starting point, like the home button Older Adult 1 loves.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="contrib-heading">
+      <h2 id="contrib-heading">Team contribution breakdown</h2>
+      <p>Individual contribution statements are submitted privately on Canvas.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Contribution table, scrolls horizontally">
+        <table>
+          <caption>Who did what for GP2</caption>
+          <thead>
+            <tr><th scope="col">Member</th><th scope="col">Main contributions</th><th scope="col">Share</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Caden Dirnberger</th><td>Interviewed an older adult; wrote the user personas</td><td>About 1/3</td></tr>
+            <tr><th scope="row">Salvador Lomeli Rodriguez</th><td>Interviewed an older adult; wrote the problem statement and scoping; documented GP2 on this site and in the journal</td><td>About 1/3</td></tr>
+            <tr><th scope="row">Ethan Bucy</th><td>Interviewed an older adult; wrote the needfinding summary; drew the paper-based conversational workflow</td><td>About 1/3</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>The Pelmanists, AI 380: Human-AI Interaction, Fall 2026.</p>
+    </div>
+  </footer>
+</body>
+</html>
