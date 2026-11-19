@@ -194,6 +194,114 @@ main section h3 { margin-top: 1.5rem; }
 .flow .name { font-weight: 700; color: var(--ink); }
 .flow .loop { grid-column: 2; font-size: 0.9rem; color: var(--muted); }
 
+.architecture {
+  max-width: 920px;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+}
+.architecture figcaption { margin-bottom: 1rem; color: var(--ink); }
+.architecture-flow,
+.architecture-services {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) 8rem minmax(150px, 1fr) 8rem minmax(150px, 1fr);
+  align-items: center;
+  gap: 0.65rem;
+}
+.architecture-services {
+  grid-template-columns: 1fr 8rem 1fr 8rem 1fr;
+  margin-top: 0.85rem;
+}
+.architecture-services::before {
+  content: "";
+  grid-column: 1;
+}
+.arch-node {
+  min-height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.9rem;
+  text-align: center;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+}
+.arch-node strong { font-family: var(--font-display); font-size: 1.05rem; color: var(--ink); }
+.arch-node small { margin-top: 0.35rem; color: var(--muted); line-height: 1.35; }
+.arch-kind { margin-bottom: 0.25rem; color: var(--muted); font-size: 0.78rem; }
+.arch-node-storage { grid-column: 3; }
+.arch-node-external { grid-column: 5; }
+.arch-arrow {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 2.2rem;
+  border-top: 2px solid var(--ink);
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-align: center;
+}
+.arch-arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--ink);
+  border-right: 2px solid var(--ink);
+  transform: rotate(45deg);
+}
+.arch-arrow span { position: relative; z-index: 1; background: var(--surface); padding: 0.15rem 0.35rem; }
+.arch-arrow-down {
+  grid-column: 2;
+  height: 5.2rem;
+  border-top: 0;
+  border-left: 2px solid var(--ink);
+  transform: rotate(0deg);
+}
+.arch-arrow-down::after {
+  right: auto;
+  bottom: -1px;
+  left: -5px;
+  transform: rotate(135deg);
+}
+
+@media (max-width: 760px) {
+  .architecture-flow {
+    grid-template-columns: 1fr;
+  }
+  .architecture-flow .arch-arrow {
+    width: 2.2rem;
+    height: 3.5rem;
+    justify-self: center;
+    border-top: 0;
+    border-left: 2px solid var(--ink);
+  }
+  .architecture-flow .arch-arrow::after {
+    right: auto;
+    bottom: -1px;
+    left: -5px;
+    transform: rotate(135deg);
+  }
+  .architecture-services {
+    grid-template-columns: 1fr;
+  }
+  .architecture-services::before { display: none; }
+  .arch-node-storage,
+  .arch-node-external,
+  .architecture-services .arch-arrow {
+    grid-column: 1;
+  }
+  .architecture-services .arch-arrow {
+    width: 2.2rem;
+    height: 3.5rem;
+    justify-self: center;
+  }
+}
+
 .screen-table { min-width: 980px; font-size: 0.92rem; }
 .screen-table td:first-child, .screen-table th:first-child { white-space: nowrap; }
 .screen-table ul { margin: 0; padding-left: 1rem; }

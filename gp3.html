@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GP3: System Implementation, Integration & Containerization | Pelmanists</title>
+  <meta name="description" content="GP3: System Implementation, Integration & Containerization">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="team-mark" href="index.html">Pelmanists</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="charter.html">Team Charter</a></li>
+          <li><a href="journal.html">Process / Journal</a></li>
+          <li><a href="deliverables.html" aria-current="page">Deliverables</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+     <main id="main" class="wrap">
+    <div class="page-intro">
+            <h1>GP3: System Implementation, Integration & Containerization</h1>
+            <p>Full functional development of the project's conversational AI assistant for older adults. 
+              We will be implementing the system, integrating various components, and containerizing the application for deployment.</p>
+            <p><a href="deliverables.html">Back to all deliverables</a></p>
+        </div>
+    
+    <section aria-labelledby="links-heading">
+      <h2 id="links-heading">Submission links</h2>
+        <ul>
+            <li><a href="https://github.com/Pelmanists/gp3">Link to the submission</a></li>
+        </ul>
+    </section>
+     <section aria-labelledby="core-agent-heading">
+       <h2 id="core-agent-heading">Core Agent Implementation</h2>
+        <p>Helper uses Rasa CALM for multi-turn dialogue management and integrates its conversational flows with the reminder and caregiver-action services.</p>
+        <dl class="facts">
+          <div><dt>Medication reminders</dt><dd>Users enter a medication and time, confirm a repeat-back, and receive pill-time check-ins that record whether the dose was taken.</dd></div>
+          <div><dt>Memory game</dt><dd>Helper shows a hard-coded family or friend photo and asks the user to identify the person. Incorrect answers receive hints before the next attempt.</dd></div>
+          <div><dt>Phone help</dt><dd>Helper guides users through phone tasks one step at a time, including answering calls, changing text size, and calling family members.</dd></div>
+        </dl>
+      </section>
+      <section aria-labelledby="web-mobile-heading">
+        <h2 id="web-mobile-heading">Web/Mobile Interface</h2>
+        <p>Helper uses a browser-based interface that is designed to be simple, readable, and usable by older adults on a desktop, tablet, or phone. Large, clearly labeled buttons provide reliable alternatives to typing or speaking.</p>
+        <dl class="facts">
+          <div><dt>Core controls</dt><dd>Users can set medication reminders, open the memory game, start phone-help tasks, and return Home from every branch.</dd></div>
+          <div><dt>Conversation</dt><dd>Typed and spoken messages are sent to the Helper assistant, while fixed replies and repeat-back questions keep the main actions predictable.</dd></div>
+          <div><dt>Accessibility</dt><dd>The interface includes larger text, high-contrast mode, read-aloud controls, repeat controls, and speech-to-text support in compatible browsers.</dd></div>
+        </dl>
+      </section>
+      <section aria-labelledby="containerization-heading">
+        <h2 id="containerization-heading">Containerization</h2>
+        <p>Docker Compose runs Helper as separate web and assistant services on a private internal network. This keeps setup consistent across macOS, Linux, and Windows and makes the prototype straightforward to start or stop.</p>
+        <figure class="architecture" aria-labelledby="architecture-caption">
+          <figcaption id="architecture-caption"><strong>Helper system architecture</strong></figcaption>
+          <div class="architecture-flow" aria-label="Browser to nginx to Rasa to SQLite and hosted AI model">
+            <div class="arch-node">
+              <span class="arch-kind">Public user</span>
+              <strong>Browser</strong>
+              <small>Desktop, tablet, or phone</small>
+            </div>
+            <span class="arch-arrow" aria-hidden="true"><span>HTTP :8080</span></span>
+            <div class="arch-node">
+              <span class="arch-kind">Docker container</span>
+              <strong>nginx</strong>
+              <small>Serves web files and chat endpoint</small>
+            </div>
+            <span class="arch-arrow" aria-hidden="true"><span>Internal network</span></span>
+            <div class="arch-node">
+              <span class="arch-kind">Docker container</span>
+              <strong>Rasa Pro</strong>
+              <small>Flows, actions, and CALM</small>
+            </div>
+          </div>
+          <div class="architecture-services" aria-label="Rasa service connections">
+            <span class="arch-arrow arch-arrow-down" aria-hidden="true"><span>Read and write</span></span>
+            <div class="arch-node arch-node-storage">
+              <span class="arch-kind">Docker volume</span>
+              <strong>SQLite</strong>
+              <small>Reminders and dose records</small>
+            </div>
+            <span class="arch-arrow arch-arrow-down" aria-hidden="true"><span>HTTPS</span></span>
+            <div class="arch-node arch-node-external">
+              <span class="arch-kind">Hosted service</span>
+              <strong>Rasa AI model</strong>
+              <small>Interprets typed and spoken requests</small>
+            </div>
+          </div>
+        </figure>
+        <dl class="facts">
+          <div><dt>Web service</dt><dd>An unprivileged nginx container serves the browser interface and forwards the chat request to Rasa.</dd></div>
+          <div><dt>Assistant service</dt><dd>A Rasa Pro container runs the conversational flows and action server, with a model trained during the image build.</dd></div>
+          <div><dt>Persistent data</dt><dd>A named Docker volume stores reminders, dose records, and simulated caregiver alerts between runs.</dd></div>
+          <div><dt>Deployment port</dt><dd>Only the web service is published on port 8080 by default. Rasa's internal API port is not publicly exposed.</dd></div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="helper-heading">
+        <h2 id="helper-heading">Helper Readme</h2>
+        <p>Helper is a talking assistant for adults over 70. It reminds people to take their pills and tells a caregiver if a dose is missed, plays a family-photo memory game, and gives step-by-step phone help. Every answer is short, can be read aloud, and comes with big buttons.</p>
+        <p>Helper is built by the Pelmanists (Caden Dirnberger, Salvador Lomeli Rodriguez, and Ethan Bucy) for AI 380, Human-AI Interaction, at Willamette University, Fall 2026. This repository is our GP3 prototype. It is based on our <a href="gp2.html">GP2 needfinding</a>.</p>
+
+        <h3>1. Quick start</h3>
+        <p>Requirements:</p>
+        <ul class="links-list">
+          <li>Docker Desktop or Docker Engine with Compose v2, running.</li>
+          <li>At least 4 GB of memory for Docker. Helper's Rasa server uses about 0.9 GB while chatting and is capped at 2 GB; the web server uses about 10 MB.</li>
+          <li>About 6 GB of free disk space. The Rasa Pro image is about 1 GB to download and 4.7 GB unpacked.</li>
+          <li>Internet access for the first build and for the AI model while Helper runs.</li>
+          <li>A free Rasa Pro licence.</li>
+        </ul>
+        <p>Start Helper on macOS or Linux:</p>
+        <pre><code>cp .env.example .env
+# Add the licence after RASA_LICENSE=, without quotes or angle brackets.
+./pelmanist-up</code></pre>
+        <p>Then open <a href="http://localhost:8080">http://localhost:8080</a>. Stop Helper with <code>./pelmanist-down</code>.</p>
+        <p>The first start downloads Rasa Pro and trains Helper's model inside the image. This took about 3 minutes from scratch and about 1 minute for later rebuilds on our machines. Reminders are kept between runs.</p>
+        <p>On Windows, create <code>.env</code> as above, then run:</p>
+        <pre><code>docker compose up --build -d</code></pre>
+        <p>Stop the application with <code>docker compose down</code>. The scripts also work in WSL or Git Bash.</p>
+
+        <h3>2. Access credentials</h3>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Access credentials table, scrolls horizontally">
+          <table>
+            <thead>
+              <tr><th scope="col">Credential</th><th scope="col">Purpose</th><th scope="col">Required?</th><th scope="col">Where to get it</th><th scope="col">Where it goes</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><code>RASA_LICENSE</code></th><td>Runs Rasa Pro and the key for Rasa's free hosted AI model</td><td>Yes</td><td>A free Rasa Pro Developer Edition licence from rasa.com or the team's private licence</td><td><code>.env</code>; never commit it</td></tr>
+              <tr><th scope="row">Login</th><td>No accounts. Each browser gets a random user ID.</td><td>No</td><td>Demo tools → Start as a new user</td><td>Not applicable</td></tr>
+              <tr><th scope="row">Other API keys</th><td>None</td><td>No</td><td>Not applicable</td><td>Not applicable</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The scripts accept the older name <code>RASA_PRO_LICENSE</code>. Every setting is listed and commented in <code>.env.example</code>.</p>
+
+        <h3>3. Try it (5 minutes)</h3>
+        <ol class="flow" aria-label="Quick test steps">
+          <li><span class="kind">Set a reminder</span><span class="name">Tap Reminders</span><span class="loop">Enter “Test pill A” and a time such as “8 in the morning.” Use made-up medicines only.</span></li>
+          <li><span class="kind">Check it</span><span class="name">Confirm the repeat-back</span><span class="loop">Check the pill and time, then tap “Yes, that's right.”</span></li>
+          <li><span class="kind">Correct it</span><span class="name">Set it in one message</span><span class="loop">Say or type “remind me to take vitamin D at 8 in the morning,” then change it to 9 AM.</span></li>
+          <li><span class="kind">Review reminders</span><span class="name">Ask what is scheduled</span><span class="loop">Say or type “what are my reminders?”</span></li>
+          <li><span class="kind">Test pill time</span><span class="name">Open Demo tools</span><span class="loop">Tap Simulate pill time, answer that the pill was not taken, and see the simulated family notification.</span></li>
+          <li><span class="kind">Test fallbacks</span><span class="name">Try two unknown messages</span><span class="loop">For example, enter “blorp fizzle wug,” then “zzzq plim snorf.”</span></li>
+          <li><span class="kind">Try the other tasks</span><span class="name">Memory game and Phone help</span><span class="loop">Identify a photo, ask for a hint, or reword one of the phone-help steps.</span></li>
+          <li><span class="kind">Check accessibility</span><span class="name">Try the controls</span><span class="loop">Use bigger text, high contrast, read aloud, and repeat.</span></li>
+        </ol>
+        <p>Every branch ends at “Anything else?” with the same choices, and Home always returns to the start.</p>
+
+        <h3>4. Scripts</h3>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Helper scripts table, scrolls horizontally">
+          <table>
+            <thead><tr><th scope="col">Script</th><th scope="col">What it does</th><th scope="col">Deletes</th><th scope="col">Keeps</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><code>pelmanist-up</code></th><td>Builds and starts Helper, waits until healthy, and prints the URL.</td><td>Nothing</td><td>Everything</td></tr>
+              <tr><th scope="row"><code>pelmanist-down</code></th><td>Stops Helper and works without a licence.</td><td>Containers and network</td><td>Reminders and Docker images</td></tr>
+              <tr><th scope="row"><code>pelmanist-down-super</code></th><td>Deletes Helper and all project data locally and, if configured, on the live deployment.</td><td>Project containers, volumes, network, images, and local caches</td><td><code>.env</code>, tracked files, and other Docker projects</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>All scripts are safe to run twice and print help with <code>--help</code>. <code>pelmanist-down-super</code> only finds Docker objects labeled <code>com.docker.compose.project=pelmanist</code>. It lists sizes first and then asks for confirmation.</p>
+        <ul class="links-list">
+          <li><code>--dry-run</code> lists what would be deleted.</li>
+          <li><code>--yes</code> skips the confirmation prompt.</li>
+          <li><code>--local-only</code> skips the live deployment.</li>
+        </ul>
+        <p>For live deployments, set <code>PELMANIST_LIVE_TARGET</code> in <code>.env</code>:</p>
+        <dl class="facts">
+          <div><dt>Empty</dt><dd>No live deployment is configured.</dd></div>
+          <div><dt><code>docker:&lt;context&gt;</code></dt><dd>Runs teardown against a Docker server or VM reached through a Docker context.</dd></div>
+          <div><dt><code>codespaces</code></dt><dd>Deletes the Pelmanists/gp3 GitHub Codespace with the GitHub CLI.</dd></div>
+        </dl>
+
+        <h3>5. How it works</h3>
+        <pre><code>Browser → localhost:8080 → nginx
+                              ↓
+                /api/webhooks/rest/webhook → Rasa:5005
+                                                   ↓
+                                      Rasa Pro + actions
+                                                   ↓
+                                      tutorial-llm.rasa.ai</code></pre>
+        <p>Only port 8080 is public; Rasa's port 5005 is not published and Rasa's HTTP API is off. The nginx server serves the web files and forwards one chat endpoint.</p>
+        <ul class="links-list">
+          <li><code>pelmanist-rasa:local</code> uses Rasa Pro and trains the model while the image is built. The licence is provided through BuildKit secret so it is not stored in the image.</li>
+          <li><code>pelmanist-web:local</code> uses unprivileged nginx.</li>
+          <li>Reminders, dose records, and simulated caregiver alerts are stored in SQLite on the <code>pelmanist_helper-data</code> volume.</li>
+          <li>Conversations remain in memory and disappear when Rasa restarts.</li>
+          <li>Pill times use <code>HELPER_TIMEZONE</code>, which defaults to <code>America/Los_Angeles</code>.</li>
+        </ul>
+
+        <h3>6. The AI model</h3>
+        <p>Helper uses Rasa CALM. Flow files decide what Helper does and says. The language model interprets natural language and turns it into commands such as “start the reminder flow” or “the pill is vitamin D.” Replies stay fixed so medicine names and times are repeated exactly.</p>
+        <p>The default model is Rasa's hosted tutorial model, <code>rasa/command-generator-llama-3.1-8b-instruct</code>. It is best-effort and requires <code>RASA_LICENSE</code>. The custom prompt adds a “cannot handle” option so two misunderstandings can trigger the family fallback.</p>
+        <p>Button taps do not require the model. If the model is unavailable, Helper explains that it had a problem and keeps its three main buttons available; typed and spoken answers may not be understood until service resumes.</p>
+        <p>To switch models, change the <code>model_groups</code> entry in <code>endpoints.yml</code>, add the required API key to <code>.env</code>, pass it to the Rasa service, and rebuild.</p>
+
+        <h3>7. Troubleshooting</h3>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Troubleshooting table, scrolls horizontally">
+          <table>
+            <thead><tr><th scope="col">Problem</th><th scope="col">What to do</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Docker isn't running</th><td>Start Docker Desktop and wait for the Engine before retrying <code>pelmanist-up</code>.</td></tr>
+              <tr><th scope="row">No Rasa licence found</th><td>Copy <code>.env.example</code> to <code>.env</code> and add the licence after <code>RASA_LICENSE=</code> without quotes or angle brackets.</td></tr>
+              <tr><th scope="row">Licence error</th><td>Request a new free licence if the licence is wrong or expired.</td></tr>
+              <tr><th scope="row">Port 8080 is in use</th><td>Set <code>PELMANIST_PORT=8090</code> in <code>.env</code>, run the start script again, and open the new port.</td></tr>
+              <tr><th scope="row">First build is slow</th><td>The initial download is about 1 GB; later starts are faster.</td></tr>
+              <tr><th scope="row">Typed or spoken answers fail</th><td>Rasa's hosted model may be unreachable. Buttons still work; try again later.</td></tr>
+              <tr><th scope="row">Windows line-ending error</th><td>Clone the repository again so <code>.gitattributes</code> applies the correct script line endings, or use Docker Compose directly.</td></tr>
+              <tr><th scope="row">Microphone does nothing</th><td>Use Chrome, Edge, or Safari over localhost and allow microphone access. Typing remains available.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>To inspect Rasa logs, run <code>docker compose logs rasa</code>.</p>
+
+        <h3>8. Privacy</h3>
+        <ul class="links-list">
+          <li>Reminders, dose records, and simulated caregiver alerts stay in SQLite on the Docker volume. They are keyed to a random browser ID and contain no account or contact information.</li>
+          <li>To interpret a message, Helper sends the recent conversation, flow descriptions, and current slot values, including medicine names and pill times, to Rasa's hosted AI model.</li>
+          <li>The browser's Web Speech API may process speech on-device or send audio to a browser-provider service, depending on the browser.</li>
+          <li>Rasa logs are at INFO level and do not include prompts. Rasa telemetry is disabled.</li>
+          <li>Testing uses made-up medicines only.</li>
+        </ul>
+        <p>Known privacy documentation gap: the in-app page currently says reminders stay on the Helper server only. While a hosted model interprets messages, relevant data may also leave the server, and that page is being updated.</p>
+
+        <h3>9. Known limitations</h3>
+        <ul class="links-list">
+          <li>Caregiver alerts are simulated. They are stored and shown as “Family notified,” but no SMS or call is sent.</li>
+          <li>With the AI model unavailable, only button paths work.</li>
+          <li>FAQ answers are fixed. Health questions are directed to a doctor or pharmacist instead of an embeddings-based search.</li>
+          <li>The free model is small and can misidentify a flow. Button paths remain reliable.</li>
+          <li>In-progress conversations are lost when Rasa restarts, while saved reminders remain.</li>
+        </ul>
+
+        <h3>10. Future work</h3>
+        <ul class="links-list">
+          <li>Allow a caregiver to upload real family photos.</li>
+          <li>Add real SMS or caregiver-app notifications.</li>
+          <li>Create a public live deployment for GP4.</li>
+        </ul>
+
+        <h3>11. Development without Docker</h3>
+        <p>Use Python 3.11 and keep the virtual environment outside iCloud-synced folders:</p>
+        <pre><code>python3.11 -m venv ~/.venvs/gp3
+~/.venvs/gp3/bin/pip install rasa-pro==3.21.0
+ln -s ~/.venvs/gp3 .venv
+set -a; . ./.env; set +a
+.venv/bin/rasa data validate
+.venv/bin/rasa train
+.venv/bin/rasa run --cors "*"</code></pre>
+        <p>In a second terminal, serve the web page:</p>
+        <pre><code>python3 -m http.server 8000 --bind 127.0.0.1 -d web</code></pre>
+        <p>Open <code>http://localhost:8000/?api=http://localhost:5005</code>. Without Docker, reminders are stored in <code>.helper_storage/helper.db</code>.</p>
+        <pre><code>.venv/bin/rasa test e2e tests/e2e_test_cases
+.venv/bin/rasa test e2e tests/offline_e2e --endpoints endpoints.offline.yml</code></pre>
+        <p>To test an outage in Docker:</p>
+        <pre><code>docker compose -f docker-compose.yml -f docker/docker-compose.offline.yml up -d --wait
+./pelmanist-up</code></pre>
+
+        <h3>12. Credits</h3>
+        <ul class="links-list">
+          <li>Rasa Pro 3.21.0 Developer Edition and Rasa's hosted tutorial model.</li>
+          <li>nginx, Docker, and Docker Compose.</li>
+          <li>The browser's Web Speech API for speech-to-text and read-aloud.</li>
+          <li>ShellCheck and Playwright for testing.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Screenshot</h2>
+        <img src="images/helper_screenshot.png" alt="Screenshot of the Helper web interface showing the main menu with buttons for Reminders, Memory Game, Phone Help, and Demo Tools." width="800" height="600">
+      </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>The Pelmanists, AI 380: Human-AI Interaction, Fall 2026.</p>
+    </div>
+  </footer>
+  </body>
+</html>
