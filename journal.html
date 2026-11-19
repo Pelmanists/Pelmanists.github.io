@@ -36,6 +36,28 @@
     <!-- To add a week: copy one <li class="entry"> block, paste it at the TOP of the list, and edit. -->
     <ol class="timeline" reversed>
       <li class="entry">
+        <time class="date" datetime="2026-11-18">Weeks 5 to 9, Oct 19 to Nov 20</time>
+        <h2>GP3: building Helper</h2>
+        <p>We turned our GP2 paper workflow into Helper, a working conversational assistant for adults over 70. Helper reminds people to take their pills and shows a simulated caregiver alert when a dose is missed. It also plays a memory game with sample family photos and walks people through phone tasks one step at a time. Once a free Rasa licence is added to <code>.env</code>, it starts in Docker with one script. Full write-up on the <a href="gp3.html">GP3 page</a>.</p>
+        <h3>What we did</h3>
+        <ul>
+          <li>Built the dialogue in Rasa CALM: medication reminders with a repeat-back check, listing and deleting reminders, pill-time check-ins that record whether the dose was taken, a photo memory game with hints, and step-by-step phone help</li>
+          <li>Built a browser interface for phone, tablet, or desktop, with large buttons, bigger text, high contrast, read-aloud, repeat, and speech-to-text</li>
+          <li>Packaged Helper as two Docker Compose services, nginx and Rasa Pro, with reminders saved in SQLite on a Docker volume, and wrote start and stop scripts</li>
+          <li>Wrote a technical README covering setup, a 5-minute test, troubleshooting, privacy, and known limitations</li>
+        </ul>
+        <h3>What we learned</h3>
+        <ul>
+          <li>Letting the language model interpret requests while Helper's replies stay fixed means medicine names and times are always repeated back exactly, which supports the predictability we identified in GP2.</li>
+          <li>Buttons have to work on their own: if the hosted model is down or misreads a request, the button paths still work.</li>
+          <li>Privacy needs care: relevant data, like medicine names, is sent to the hosted model, so our privacy notes must say so plainly.</li>
+        </ul>
+        <h3>Next week</h3>
+        <ul>
+          <li>Start GP4: put Helper on a public live deployment and test it with users</li>
+        </ul>
+      </li>
+      <li class="entry">
         <time class="date" datetime="2026-10-16">Weeks 3 to 4, Oct 5 to 16</time>
         <h2>GP2: from needfinding to a paper workflow</h2>
         <p>We started Project 2, a conversational AI assistant for older adults. We each interviewed an older adult over 70 about technology and AI, narrowed our problem to medication reminders, wrote two personas, and drew the assistant's conversation on paper. Full write-up on the <a href="gp2.html">GP2 page</a>.</p>
